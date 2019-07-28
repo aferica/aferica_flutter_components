@@ -1,7 +1,9 @@
 library aferica_flutter_components;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'components/BlankRow.dart';
+export 'components/ButtonTag.dart';
+export 'components/Dialog.dart';
+export 'components/ExceptionMessage.dart';
+export 'components/Loading.dart';
+export 'components/MoreInfoContainer.dart';
+export 'components/MyImage.dart';
