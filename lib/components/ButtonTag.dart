@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'MyColor.dart';
+
 class ButtonTag extends StatelessWidget {
   // 按钮高度（有size时无效）
   final double height;
@@ -49,10 +51,9 @@ class ButtonTag extends StatelessWidget {
     Color textColor = Colors.white;
 
     if (size == 'normal') {
-      containerWidth = 120.0;
       containerHeight = 40.0;
     } else if (size == 'big') {
-      containerWidth = 200.0;
+      containerWidth = MediaQuery.of(context).size.width;
       containerHeight = 50.0;
       fontSize = 22.0;
     } else if (size == 'small') {
@@ -62,16 +63,16 @@ class ButtonTag extends StatelessWidget {
     }
 
     if (type == 'default') {
-      color = Colors.white;
-      textColor = Colors.black87;
+      color = MyColor.white;
+      textColor = MyColor.textColor;
     } else if (type == 'success') {
-      color = const Color(0xff19be6b);
+      color = MyColor.green;
     } else if (type == 'info') {
-      color = const Color(0xff2d8cf0);
+      color = MyColor.blue;
     } else if (type == 'danger') {
-      color = const Color(0xffff9900);
+      color = MyColor.orange;
     } else if (type == 'error') {
-      color = const Color(0xffed3f14);
+      color = MyColor.red;
     }
 
     if (disabled) {
@@ -95,6 +96,7 @@ class ButtonTag extends StatelessWidget {
       child: Container(
         width: containerWidth,
         height: containerHeight,
+        padding: EdgeInsets.all(5.0),
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.all(Radius.circular(radius)),
@@ -109,6 +111,7 @@ class ButtonTag extends StatelessWidget {
               fontSize: fontSize,
               color: textColor
             ),
+            maxLines: 1,
           ),
         ),
       ),
