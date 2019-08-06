@@ -15,14 +15,14 @@ class ExceptionMessage extends StatelessWidget {
   ExceptionMessage({
     Key key,
     this.type = 'error',
-    this.msg = '',
+    this.msg,
   }):super(key: key);
 
   @override
   Widget build(BuildContext context) {
     String excPic = '';
     String excMsg = '';
-    if (msg == '') {
+    if (msg == null) {
       if (type == 'net') {
         excMsg = '网络请求失败，请重试';
       } else if (type == 'busy') {
@@ -32,6 +32,8 @@ class ExceptionMessage extends StatelessWidget {
       } else if (type == 'message') {
         excMsg = '未收到任何信息';
       }
+    } else {
+      excMsg = msg;
     }
     if (type == 'net') {
       excPic = 'static/images/no_net.jpg';
@@ -59,7 +61,7 @@ class ExceptionMessage extends StatelessWidget {
           ),
           Text(excMsg, style: TextStyle(
             color: Colors.black54,
-            fontSize: 16
+            fontSize: 14
           ),),
         ],
       ),
