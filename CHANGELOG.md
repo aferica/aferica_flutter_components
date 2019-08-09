@@ -18,3 +18,9 @@
 
 ## 0.0.201908062309
 * 修复ExceptionMessage自定义异常信息无效BUG
+
+## 0.0.201908092000
+* 添加图片预览组件ImagePreview组件
+* MyImage添加点击事件
+* ButtonTag修改big默认字体大小
+* 添加示例`example`

@@ -24,6 +24,8 @@ class MyNetWorkImage extends StatelessWidget {
   /// loadingColor: 加载动画颜色（placeholder不为空时无效）
   /// loadingColor: loading's color(it is Invalid when placeholder is not empty)
   final Color loadingColor;
+  // 点击事件
+  final VoidCallback onClick;
 
 
   MyNetWorkImage({
@@ -34,31 +36,35 @@ class MyNetWorkImage extends StatelessWidget {
     this.fit = BoxFit.cover,
     this.error,
     this.placeholder,
-    this.loadingColor
+    this.loadingColor,
+    this.onClick
   }):super(key: key);
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return CachedNetworkImage(
-      fit: fit,
-      imageUrl: src,
-      width: width,
-      height: height,
-      placeholder: (context, url) => placeholder ?? new Container(
+    return GestureDetector(
+      onTap: onClick,
+      child: CachedNetworkImage(
+        fit: fit,
+        imageUrl: src,
         width: width,
         height: height,
-        child: Center(
-          child: SpinKitWave(
-            color: loadingColor ?? Colors.deepOrange,
-            size: 20.0,
+        placeholder: (context, url) => placeholder ?? new Container(
+          width: width,
+          height: height,
+          child: Center(
+            child: SpinKitWave(
+              color: loadingColor ?? Colors.deepOrange,
+              size: 20.0,
+            ),
           ),
         ),
-      ),
-      errorWidget: (context, url, err) => new Container(
-        width: width,
-        height: height,
-        child: error ?? Image.asset('static/images/404.jpg', fit: BoxFit.cover,)
+        errorWidget: (context, url, err) => new Container(
+          width: width,
+          height: height,
+          child: error ?? Image.asset('static/images/404.jpg', fit: BoxFit.cover,)
+        ),
       ),
     );
   }

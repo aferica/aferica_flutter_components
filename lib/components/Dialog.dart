@@ -145,7 +145,7 @@ class CloseAppDialog extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.4 - 2,
                     child: Center(
                       child: ButtonTag(
-                        size: 'normal',
+                        size: 'small',
                         type: 'success',
                         text: '留下',
                         onClick: () {
@@ -159,7 +159,7 @@ class CloseAppDialog extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.4 - 2,
                     child: Center(
                       child: ButtonTag(
-                        size: 'normal',
+                        size: 'small',
                         type: 'danger',
                         text: '残忍离开',
                         onClick: onConfirm,

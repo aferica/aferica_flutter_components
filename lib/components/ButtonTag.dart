@@ -55,7 +55,7 @@ class ButtonTag extends StatelessWidget {
     } else if (size == 'big') {
       containerWidth = MediaQuery.of(context).size.width;
       containerHeight = 50.0;
-      fontSize = 22.0;
+      fontSize = 18.0;
     } else if (size == 'small') {
       containerWidth = 60.0;
       containerHeight = 30.0;
