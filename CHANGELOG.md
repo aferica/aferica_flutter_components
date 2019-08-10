@@ -24,3 +24,6 @@
 * MyImage添加点击事件
 * ButtonTag修改big默认字体大小
 * 添加示例`example`
+
+## 0.0.201908102140
+* 图片预览组件ImagePreview添加页码和滑动切换

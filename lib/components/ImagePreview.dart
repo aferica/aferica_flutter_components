@@ -42,15 +42,52 @@ class ImagePreviewState extends State<ImagePreview> {
 
     // TODO: implement build
     return Scaffold(
-      body: Container(
-        height: height,
-        width: width,
-        color: Colors.black,
-        child: MyNetWorkImage(
-          src: imageSrc[defaultIndex],
-          width: width,
-          fit: BoxFit.fitWidth,
-        ),
+      body: Stack(
+        children: <Widget> [
+          Container(
+            height: height,
+            width: width,
+            color: Colors.black,
+            child: GestureDetector(
+              onHorizontalDragEnd: (e) {
+                print(e);
+                print(e.velocity);
+                print(e.velocity.pixelsPerSecond.dx);
+                if(e.velocity.pixelsPerSecond.dx > 0) {
+                  setState(() {
+                    defaultIndex = defaultIndex > 0 ? defaultIndex - 1 : imageSrc.length - 1;
+                  });
+                }
+                if(e.velocity.pixelsPerSecond.dx < 0) {
+                  setState(() {
+                    defaultIndex = defaultIndex < imageSrc.length - 1 ? defaultIndex + 1 : 0;
+                  });
+                }
+              },
+              child: MyNetWorkImage(
+                src: imageSrc[defaultIndex],
+                width: width,
+                fit: BoxFit.fitWidth,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 50.0,
+            right: 0.0,
+            left: 0.0,
+            height: 40.0,
+            child: new Text(
+              (defaultIndex + 1).toString() + ' / ' + imageSrc.length.toString(),
+              style: new TextStyle(
+                fontSize: 16.0,
+                fontFamily: 'serif',
+                color: Colors.white,
+
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ],
       ),
 //      child: Center(
 //        child: ListView.builder(
