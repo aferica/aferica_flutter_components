@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_drag_scale/flutter_drag_scale.dart';
 
 import 'MyImage.dart';
 
@@ -48,26 +48,28 @@ class ImagePreviewState extends State<ImagePreview> {
             height: height,
             width: width,
             color: Colors.black,
-            child: GestureDetector(
-              onHorizontalDragEnd: (e) {
-                print(e);
-                print(e.velocity);
-                print(e.velocity.pixelsPerSecond.dx);
-                if(e.velocity.pixelsPerSecond.dx > 0) {
-                  setState(() {
-                    defaultIndex = defaultIndex > 0 ? defaultIndex - 1 : imageSrc.length - 1;
-                  });
-                }
-                if(e.velocity.pixelsPerSecond.dx < 0) {
-                  setState(() {
-                    defaultIndex = defaultIndex < imageSrc.length - 1 ? defaultIndex + 1 : 0;
-                  });
-                }
-              },
-              child: MyNetWorkImage(
-                src: imageSrc[defaultIndex],
-                width: width,
-                fit: BoxFit.fitWidth,
+            child: Center(
+              child: GestureDetector(
+                onHorizontalDragEnd: (e) {
+                  if(e.velocity.pixelsPerSecond.dx > 0) {
+                    setState(() {
+                      defaultIndex = defaultIndex > 0 ? defaultIndex - 1 : imageSrc.length - 1;
+                    });
+                  }
+                  if(e.velocity.pixelsPerSecond.dx < 0) {
+                    setState(() {
+                      defaultIndex = defaultIndex < imageSrc.length - 1 ? defaultIndex + 1 : 0;
+                    });
+                  }
+                },
+                child: DragScaleContainer(
+                  doubleTapStillScale: true,
+                  child: MyNetWorkImage(
+                    src: imageSrc[defaultIndex],
+                    width: width,
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
               ),
             ),
           ),
