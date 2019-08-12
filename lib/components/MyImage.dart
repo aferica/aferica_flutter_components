@@ -26,6 +26,8 @@ class MyNetWorkImage extends StatelessWidget {
   final Color loadingColor;
   // 点击事件
   final VoidCallback onClick;
+  // httpHeaders
+  final Map<String, String> httpHeaders;
 
 
   MyNetWorkImage({
@@ -37,7 +39,8 @@ class MyNetWorkImage extends StatelessWidget {
     this.error,
     this.placeholder,
     this.loadingColor,
-    this.onClick
+    this.onClick,
+    this.httpHeaders
   }):super(key: key);
 
   @override
@@ -50,6 +53,7 @@ class MyNetWorkImage extends StatelessWidget {
         imageUrl: src,
         width: width,
         height: height,
+        httpHeaders: httpHeaders ?? {},
         placeholder: (context, url) => placeholder ?? new Container(
           width: width,
           height: height,
