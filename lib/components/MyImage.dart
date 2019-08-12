@@ -24,10 +24,10 @@ class MyNetWorkImage extends StatelessWidget {
   /// loadingColor: 加载动画颜色（placeholder不为空时无效）
   /// loadingColor: loading's color(it is Invalid when placeholder is not empty)
   final Color loadingColor;
-  // 点击事件
+  /// 点击事件
   final VoidCallback onClick;
-  // httpHeaders
-  final Map<String, String> httpHeaders;
+  /// httpHeaders
+  final Map<String, String> headers;
 
 
   MyNetWorkImage({
@@ -40,7 +40,7 @@ class MyNetWorkImage extends StatelessWidget {
     this.placeholder,
     this.loadingColor,
     this.onClick,
-    this.httpHeaders
+    this.headers
   }):super(key: key);
 
   @override
@@ -53,7 +53,7 @@ class MyNetWorkImage extends StatelessWidget {
         imageUrl: src,
         width: width,
         height: height,
-        httpHeaders: httpHeaders ?? {},
+        httpHeaders: headers ?? {},
         placeholder: (context, url) => placeholder ?? new Container(
           width: width,
           height: height,
