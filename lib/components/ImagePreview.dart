@@ -91,32 +91,6 @@ class ImagePreviewState extends State<ImagePreview> {
           ),
         ],
       ),
-//      child: Center(
-//        child: ListView.builder(
-//          scrollDirection: Axis.horizontal,
-//          padding: const EdgeInsets.all(0.0),
-//          primary: false,
-//          itemExtent: width,
-//          //内容适配
-//          shrinkWrap: true,
-//          //item 数量
-//          itemCount: imageSrc.length,
-//          itemBuilder: (BuildContext _content,int i){
-//            if(i < imageSrc.length) {
-//              return GestureDetector(
-//                onTap: () {
-////                  Routes.router.navigateTo(context, '/japav/actor/info/${actors[i]['info'][0]['_id']}');
-//                },
-//                child: MyNetWorkImage(
-//                  src: imageSrc[i],
-//                  fit: BoxFit.fitWidth,
-//                  width: width,
-//                ),
-//              );
-//            }
-//          },
-//        ),
-//      ),
     );
   }
 }
