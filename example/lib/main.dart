@@ -63,7 +63,27 @@ class _MyHomePageState extends State<MyHomePage> {
             type: 'success',
             size: 'big',
 //            hairline: true,
-            radius: 0
+            radius: 0,
+            onClick: () {
+              showGeneralDialog(
+                context: context,
+                barrierLabel: "你好",
+                barrierDismissible: true,
+                transitionDuration: Duration(milliseconds: 100),
+                pageBuilder: (BuildContext context, Animation animation,
+                  Animation secondaryAnimation) {
+                  return Center(
+                    child: Material(
+                      child: Container(
+                        color: Colors.black.withOpacity(animation.value),
+                        child: Text("我是一个可变的"),
+                      ),
+                    ),
+                  );
+                },
+                barrierColor: Colors.black,
+              );
+            },
           ),
           BlankRow(),
           ButtonTag(

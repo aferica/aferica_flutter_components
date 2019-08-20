@@ -32,7 +32,20 @@ class ImagePreviewPage extends StatelessWidget {
                 child: MyNetWorkImage(
                   onClick: () {
                     int index = images.indexOf(image);
-                    Navigator.of(context).push(new MaterialPageRoute(builder: (ctx) => ImagePreview(imageSrc: images, defaultIndex: index,)));
+                    showGeneralDialog(
+                      context: context,
+                      barrierLabel: "你好",
+                      barrierDismissible: true,
+                      transitionDuration: Duration(milliseconds: 100),
+                      pageBuilder: (BuildContext context, Animation animation,
+                          Animation secondaryAnimation) {
+                        return Center(
+                          child: ImagePreview(imageSrc: images, defaultIndex: index,),
+                        );
+                      },
+                      barrierColor: Colors.black,
+                    );
+//                    Navigator.of(context).push(new MaterialPageRoute(builder: (ctx) => ImagePreview(imageSrc: images, defaultIndex: index,)));
                   },
                   src: image,
                   width: MediaQuery.of(context).size.width,
