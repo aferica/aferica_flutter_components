@@ -55,9 +55,15 @@ class Timeline extends StatelessWidget {
         Positioned(
             top: 10.0,
             left: 10.0,
-            child: CircleAvatar(
+            child:
+//            IconButton(
+//              iconSize: 20,
+//              icon: Icon(Icons.access_time, size: 16.0, color: MyColor.green,),
+//            )
+            CircleAvatar(
               backgroundColor: MyColor.green,
               radius: 10.0,
+              child: Icon(Icons.access_time, size: 20.0, color: Colors.white,),
             )
         )
       ],

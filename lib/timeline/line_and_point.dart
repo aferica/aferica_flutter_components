@@ -31,9 +31,9 @@ class LineAndPoint extends StatelessWidget{
           Positioned(
             top: 0,
             child: Center(
-              child: CircleAvatar(
+              child: FloatingActionButton(
                 backgroundColor: pointColor ?? MyColor.grayDark,
-                radius: pointRadius ?? 5.0,
+                child: Icon(Icons.access_time, size: 8.0, color: Colors.white,),
               ),
             ),
           )
