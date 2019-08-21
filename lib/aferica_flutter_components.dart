@@ -1,5 +1,7 @@
 library aferica_flutter_components;
 
+export 'components/MyColor.dart';
+
 export 'components/BlankRow.dart';
 export 'components/ButtonTag.dart';
 export 'components/Dialog.dart';
@@ -8,3 +10,5 @@ export 'components/ImagePreview.dart';
 export 'components/Loading.dart';
 export 'components/MoreInfoContainer.dart';
 export 'components/MyImage.dart';
+
+export 'timeline/index.dart';

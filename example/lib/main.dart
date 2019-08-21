@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:aferica_flutter_components/aferica_flutter_components.dart';
 
 import 'pages/ImagePreview.dart';
+import 'pages/Timeline.dart';
 
 void main() => runApp(MyApp());
 
@@ -112,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
           BlankRow(),
           ButtonTag(
             text: 'Dialog -- 弹框',
-            type: 'success',
+            type: 'default',
             size: 'big',
 //            hairline: true,
             radius: 0
@@ -120,12 +121,23 @@ class _MyHomePageState extends State<MyHomePage> {
           BlankRow(),
           ButtonTag(
             text: 'ImagePreview -- 图片预览',
-            type: 'success',
+            type: 'default',
             size: 'big',
 //            hairline: true,
             radius: 0,
             onClick: () {
               Navigator.of(context).push(new MaterialPageRoute(builder: (ctx) => ImagePreviewPage()));
+            },
+          ),
+          BlankRow(),
+          ButtonTag(
+            text: 'Timeline -- 时间线',
+            type: 'default',
+            size: 'big',
+//            hairline: true,
+            radius: 0,
+            onClick: () {
+              Navigator.of(context).push(new MaterialPageRoute(builder: (ctx) => TimelinePage()));
             },
           )
         ],
