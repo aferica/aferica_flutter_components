@@ -14,6 +14,8 @@ class Timeline extends StatelessWidget {
   final double pointRadius;
   final bool showHeader;
 
+  final TextStyle dateStyle;
+
   Timeline({
     Key key,
     this.date,
@@ -23,7 +25,8 @@ class Timeline extends StatelessWidget {
     this.pointIconColor,
     this.lineWidth = 2.0,
     this.pointRadius = 12.0,
-    this.showHeader = true
+    this.showHeader = true,
+    this.dateStyle
   }):super(key: key);
 
   @override
@@ -48,7 +51,7 @@ class Timeline extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(date, style: TextStyle(color: MyColor.grayDark, fontSize: 14, height: 1.2),),
+                Text(date, style: dateStyle ?? TextStyle(color: MyColor.grayDark, fontSize: 14, height: 1.2),),
                 child
               ],
             ),

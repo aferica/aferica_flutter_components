@@ -5,7 +5,7 @@ import 'package:aferica_flutter_components/aferica_flutter_components.dart';
 
 class ImagePreview extends StatefulWidget {
 
-  final List<String> imageSrc;
+  final List<dynamic> imageSrc;
 
   final int defaultIndex;
 
@@ -24,7 +24,7 @@ class ImagePreview extends StatefulWidget {
 
 class ImagePreviewState extends State<ImagePreview> {
 
-  List<String> imageSrc;
+  List<dynamic> imageSrc;
 
   int defaultIndex;
 
@@ -65,7 +65,7 @@ class ImagePreviewState extends State<ImagePreview> {
                 child: DragScaleContainer(
                   doubleTapStillScale: true,
                   child: MyNetWorkImage(
-                    src: imageSrc[defaultIndex],
+                    src: imageSrc[defaultIndex].toString(),
                     width: width,
                     fit: BoxFit.fitWidth,
                   ),
