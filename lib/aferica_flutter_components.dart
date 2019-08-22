@@ -1,14 +1,19 @@
 library aferica_flutter_components;
 
-export 'components/MyColor.dart';
+export 'theme/color.dart';
 
-export 'components/BlankRow.dart';
-export 'components/ButtonTag.dart';
-export 'components/Dialog.dart';
-export 'components/ExceptionMessage.dart';
-export 'components/ImagePreview.dart';
-export 'components/Loading.dart';
-export 'components/MoreInfoContainer.dart';
-export 'components/MyImage.dart';
+export 'components/blank_row.dart';
+export 'components/exception_message.dart';
+
+export 'button_tag/index.dart';
+
+export 'image_preview/index.dart';
+
+export 'dialog/index.dart';
+export 'dialog/loading.dart';
+
+export 'my_image/index.dart';
 
 export 'timeline/index.dart';
+
+export 'panel/index.dart';

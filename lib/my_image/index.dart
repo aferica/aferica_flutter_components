@@ -12,6 +12,9 @@ class MyNetWorkImage extends StatelessWidget {
   /// height: 图片高度
   /// height: image's height
   final double height;
+  /// height: 图片最小高度
+  /// height: image's min height
+  final double minHeight;
   /// fit: 图片适配方式
   /// fit: image adaptation method
   final BoxFit fit;
@@ -35,6 +38,7 @@ class MyNetWorkImage extends StatelessWidget {
     @required this.src,
     this.width,
     this.height,
+    this.minHeight,
     this.fit = BoxFit.cover,
     this.error,
     this.placeholder,
@@ -46,28 +50,27 @@ class MyNetWorkImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return GestureDetector(
-      onTap: onClick,
-      child: CachedNetworkImage(
-        fit: fit,
-        imageUrl: src,
-        width: width,
-        height: height,
-        httpHeaders: headers ?? {},
-        placeholder: (context, url) => placeholder ?? new Container(
+    return Container(
+      constraints: BoxConstraints(
+        minHeight: minHeight ?? MediaQuery.of(context).size.width / 16 * 9
+      ),
+      child: GestureDetector(
+        onTap: onClick,
+        child: CachedNetworkImage(
+          fit: fit,
+          imageUrl: src,
           width: width,
           height: height,
-          child: Center(
+          httpHeaders: headers ?? {},
+          placeholder: (context, url) => placeholder ?? Center(
             child: SpinKitWave(
               color: loadingColor ?? Colors.deepOrange,
               size: 20.0,
             ),
           ),
-        ),
-        errorWidget: (context, url, err) => new Container(
-          width: width,
-          height: height,
-          child: error ?? Image.asset('static/images/404.jpg', fit: BoxFit.cover,)
+          errorWidget: (context, url, err) => Center(
+            child: error ?? Image.asset('static/images/404.jpg', fit: BoxFit.cover,)
+          ),
         ),
       ),
     );

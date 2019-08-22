@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'MyColor.dart';
+import 'package:aferica_flutter_components/theme/color.dart';
 
 class ButtonTag extends StatelessWidget {
   // 按钮高度（有size时无效）

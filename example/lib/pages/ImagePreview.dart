@@ -39,9 +39,7 @@ class ImagePreviewPage extends StatelessWidget {
                       transitionDuration: Duration(milliseconds: 100),
                       pageBuilder: (BuildContext context, Animation animation,
                           Animation secondaryAnimation) {
-                        return Center(
-                          child: ImagePreview(imageSrc: images, defaultIndex: index,),
-                        );
+                        return ImagePreview(imageSrc: images, defaultIndex: index,);
                       },
                       barrierColor: Colors.black,
                     );

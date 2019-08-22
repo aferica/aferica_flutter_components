@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_drag_scale/flutter_drag_scale.dart';
 
-import 'MyImage.dart';
+import 'package:aferica_flutter_components/aferica_flutter_components.dart';
 
 class ImagePreview extends StatefulWidget {
 

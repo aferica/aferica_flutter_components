@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'ButtonTag.dart';
+import 'package:aferica_flutter_components/button_tag/index.dart';
 
 class LoadingDialog extends StatelessWidget {
   // 主标题
@@ -10,7 +10,7 @@ class LoadingDialog extends StatelessWidget {
   LoadingDialog({
     Key key,
     this.title = '正在加载，请稍等...',
-    this.description = '由于第一次使用时需要获取视频源信息，可能会导致加载一段时间，请耐心等待'
+    this.description = '初始化中，可能会导致加载一段时间，请耐心等待'
   }): super(key: key);
 
   @override
@@ -56,29 +56,6 @@ class LoadingDialog extends StatelessWidget {
         ),
       ),
     );
-
-    // TODO: implement build
-//    return AssetGiffyDialog(
-//      image: Image.asset('static/gifs/360429.gif', fit: BoxFit.cover,),
-//      title: Text(title,
-//        textAlign: TextAlign.center,
-//        style: TextStyle(
-//          fontSize: 22.0,
-//          fontWeight: FontWeight.w600
-//        )
-//      ),
-//      description: Text(description,
-//        textAlign: TextAlign.center,
-//        style: TextStyle(
-//          fontSize: 14.0,
-//        )
-//      ),
-//      onOkButtonPressed: null,
-//      onlyOkButton: true,
-//      buttonOkColor: Colors.black38,
-////      cornerRadius: 0.0,
-//      buttonOkText: Text('太慢了，老子不等了', style: TextStyle(color: Colors.white),)
-//    );
   }
 }
 

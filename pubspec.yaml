@@ -1,8 +1,8 @@
 name: aferica_flutter_components
 description: Flutter常用自定义组件库.
-version: 0.0.2
-author:
-homepage:
+version: 0.0.201908221000
+author: aferica
+homepage: https://github.com/aferica/aferica_flutter_components
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
