@@ -51,6 +51,7 @@ class ButtonTag extends StatelessWidget {
     Color textColor = Colors.white;
 
     if (size == 'normal') {
+      containerWidth = 100.0;
       containerHeight = 40.0;
     } else if (size == 'big') {
       containerWidth = MediaQuery.of(context).size.width;
@@ -94,8 +95,6 @@ class ButtonTag extends StatelessWidget {
     return GestureDetector(
       onTap: onClick,
       child: Container(
-        width: containerWidth,
-        height: containerHeight,
         padding: EdgeInsets.all(5.0),
         decoration: BoxDecoration(
           color: color,
@@ -103,6 +102,10 @@ class ButtonTag extends StatelessWidget {
           border: Border.all(
             color: borderColor
           ),
+        ),
+        constraints: BoxConstraints(
+          minHeight: containerHeight,
+          minWidth: containerWidth
         ),
         child: Center(
           child: Text(text,

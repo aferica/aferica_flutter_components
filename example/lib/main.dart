@@ -4,6 +4,8 @@ import 'package:aferica_flutter_components/aferica_flutter_components.dart';
 
 import 'pages/ImagePreview.dart';
 import 'pages/Timeline.dart';
+import 'pages/Dialog.dart';
+import 'pages/ButtonTag.dart';
 
 void main() => runApp(MyApp());
 
@@ -92,7 +94,10 @@ class _MyHomePageState extends State<MyHomePage> {
             type: 'success',
             size: 'big',
 //            hairline: true,
-            radius: 0
+            radius: 0,
+            onClick: () {
+              Navigator.of(context).push(new MaterialPageRoute(builder: (ctx) => ButtonTagPage()));
+            },
           ),
           BlankRow(),
           ButtonTag(
@@ -116,7 +121,10 @@ class _MyHomePageState extends State<MyHomePage> {
             type: 'default',
             size: 'big',
 //            hairline: true,
-            radius: 0
+            radius: 0,
+            onClick: () {
+              Navigator.of(context).push(new MaterialPageRoute(builder: (ctx) => DialogPage()));
+            },
           ),
           BlankRow(),
           ButtonTag(
