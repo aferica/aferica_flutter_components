@@ -51,8 +51,9 @@ class MyNetWorkImage extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
+      width: width,
       constraints: BoxConstraints(
-        minHeight: minHeight ?? MediaQuery.of(context).size.width / 16 * 9
+        minHeight: minHeight ?? height ?? MediaQuery.of(context).size.width / 16 * 9,
       ),
       child: GestureDetector(
         onTap: onClick,

@@ -91,11 +91,25 @@ class ButtonTag extends StatelessWidget {
       fontSize = textSize;
     }
 
+    return FlatButton(
+      child: Text(text,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: fontSize,
+          color: textColor
+        ),
+        maxLines: 1,
+      ),
+      color: color,
+      onPressed: onClick,
+    );
+
     // TODO: implement build
     return GestureDetector(
       onTap: onClick,
       child: Container(
         padding: EdgeInsets.all(5.0),
+//        margin: EdgeInsets.all(2.0),
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.all(Radius.circular(radius)),

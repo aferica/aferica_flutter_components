@@ -16,7 +16,7 @@ class ButtonTagPage extends StatelessWidget {
             ButtonTag(
               size: 'big',
               text: 'big',
-              hairline: true,
+//              hairline: true,
               type: 'success',
             ),
             BlankRow(),
@@ -31,6 +31,7 @@ class ButtonTagPage extends StatelessWidget {
               text: 'normal',
               type: 'success',
             ),
+            BlankRow(),
           ],
         ),
       ),

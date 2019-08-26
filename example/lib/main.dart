@@ -26,6 +26,8 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        backgroundColor: MyColor.gray,
+        canvasColor: MyColor.backgroundColorLight,
       ),
       home: MyHomePage(title: 'aferica_flutter_components'),
     );

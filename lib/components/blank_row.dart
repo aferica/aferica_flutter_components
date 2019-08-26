@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:aferica_flutter_components/aferica_flutter_components.dart';
 
 class BlankRow extends StatelessWidget {
   // 空白行高度
@@ -9,7 +10,7 @@ class BlankRow extends StatelessWidget {
   BlankRow({
     Key key,
     this.height = 10.0,
-    this.color = const Color(0xffeeeeee)
+    this.color
   }):super(key: key);
 
 
