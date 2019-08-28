@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
         backgroundColor: MyColor.gray,
-        canvasColor: MyColor.backgroundColorLight,
+        scaffoldBackgroundColor: MyColor.backgroundColorLight,
       ),
       home: MyHomePage(title: 'aferica_flutter_components'),
     );
@@ -95,27 +95,29 @@ class _MyHomePageState extends State<MyHomePage> {
             text: 'Button And Tag -- 按钮和标签',
             type: 'success',
             size: 'big',
+            icon: Icons.radio_button_checked,
 //            hairline: true,
-            radius: 0,
             onClick: () {
               Navigator.of(context).push(new MaterialPageRoute(builder: (ctx) => ButtonTagPage()));
             },
           ),
           BlankRow(),
+          InkWell(
+            child: Text('Image -- 图片'),
+          ),
           ButtonTag(
             text: 'Image -- 图片',
             type: 'success',
             size: 'big',
-//            hairline: true,
-            radius: 0
           ),
           BlankRow(),
           ButtonTag(
             text: 'ExceptionMessage -- 异常信息',
             type: 'success',
             size: 'big',
-//            hairline: true,
-            radius: 0
+            hairline: true,
+            radius: 0,
+            icon: Icons.info,
           ),
           BlankRow(),
           ButtonTag(

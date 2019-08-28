@@ -19,7 +19,7 @@ class BlankRow extends StatelessWidget {
     // TODO: implement build
     return Container(
       height: height,
-      color: color,
+      color: color ?? MyColor.backgroundColorLight,
     );
   }
 }
