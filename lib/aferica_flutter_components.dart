@@ -17,3 +17,5 @@ export 'my_image/index.dart';
 export 'timeline/index.dart';
 
 export 'panel/index.dart';
+
+export 'cell/index.dart';

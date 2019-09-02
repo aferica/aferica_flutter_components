@@ -6,6 +6,7 @@ import 'pages/ImagePreview.dart';
 import 'pages/Timeline.dart';
 import 'pages/Dialog.dart';
 import 'pages/ButtonTag.dart';
+import 'pages/Cell.dart';
 
 void main() => runApp(MyApp());
 
@@ -102,9 +103,16 @@ class _MyHomePageState extends State<MyHomePage> {
             },
           ),
           BlankRow(),
-          InkWell(
-            child: Text('Image -- 图片'),
+          ButtonTag(
+            text: 'Cell -- 单元格',
+            type: 'success',
+            size: 'big',
+//            hairline: true,
+            onClick: () {
+              Navigator.of(context).push(new MaterialPageRoute(builder: (ctx) => CellPage()));
+            },
           ),
+          BlankRow(),
           ButtonTag(
             text: 'Image -- 图片',
             type: 'success',
