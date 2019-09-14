@@ -11,6 +11,7 @@ export 'image_preview/index.dart';
 
 export 'dialog/index.dart';
 export 'dialog/loading.dart';
+export 'dialog/close_app.dart';
 
 export 'my_image/index.dart';
 
