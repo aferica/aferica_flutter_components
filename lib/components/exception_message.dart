@@ -24,9 +24,9 @@ class ExceptionMessage extends StatelessWidget {
     String excMsg = '';
     if (msg == null) {
       if (type == 'net') {
-        excMsg = '网络请求失败，请重试';
+        excMsg = '网络请求失败，请点击图片刷新';
       } else if (type == 'busy') {
-        excMsg = '业务繁忙，请稍后重试';
+        excMsg = '业务繁忙，请点击图片刷新';
       } else if (type == 'find') {
         excMsg = '什么都没有找到';
       } else if (type == 'message') {
@@ -56,7 +56,7 @@ class ExceptionMessage extends StatelessWidget {
           Container(
             height: 200,
             child: Center(
-              child: Image.asset(excPic),
+              child: Image.asset(excPic, package: 'aferica_flutter_components',),
             ),
           ),
           Text(excMsg, style: TextStyle(

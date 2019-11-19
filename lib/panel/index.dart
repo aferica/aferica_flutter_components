@@ -8,6 +8,8 @@ class MoreInfoContainer extends StatelessWidget{
 
   final String moreInfo;
 
+  final bool showDivider;
+
   final Widget child;
 
   // 点击更多事件
@@ -19,6 +21,7 @@ class MoreInfoContainer extends StatelessWidget{
     @required this.child,
     this.needMore = false,
     this.moreInfo = '更多...',
+    this.showDivider= true,
     this.onClickMore
   }):super(key: key);
 
@@ -27,6 +30,7 @@ class MoreInfoContainer extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
+      color: Colors.white,
       child: Column(
         children: <Widget>[
           Row(
@@ -52,10 +56,12 @@ class MoreInfoContainer extends StatelessWidget{
               ),
             ],
           ),
-          Divider(height: 2.0,),
+          showDivider ? Divider(height: 2.0,) : null,
           child
-        ],
+        ].where(notNull).toList(),
       ),
     );
   }
+
+  bool notNull(Object o) => o != null;
 }
