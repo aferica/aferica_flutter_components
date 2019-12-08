@@ -30,7 +30,7 @@ class MoreInfoContainer extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      color: Colors.white,
+      color: Theme.of(context).cardColor,
       child: Column(
         children: <Widget>[
           Row(
@@ -50,13 +50,13 @@ class MoreInfoContainer extends StatelessWidget{
                   child: new Text(
                     moreInfo,
                     textAlign: TextAlign.right,
-                    style: new TextStyle(fontSize: 14, color: const Color(0xff2d8cf0)),
+                    style: new TextStyle(fontSize: 14, color: Theme.of(context).accentColor),
                   ),
                 ),
               ),
             ],
           ),
-          showDivider ? Divider(height: 2.0,) : null,
+          showDivider ? Divider(height: 2.0, color: const Color(0xffDCDCDC),) : null,
           child
         ].where(notNull).toList(),
       ),

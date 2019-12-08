@@ -60,7 +60,6 @@ class ExceptionMessage extends StatelessWidget {
             ),
           ),
           Text(excMsg, style: TextStyle(
-            color: Colors.black54,
             fontSize: 14
           ),),
         ],
