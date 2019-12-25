@@ -61,7 +61,7 @@ class Timeline extends StatelessWidget {
           top: 10.0,
           left: 20.0 + lineWidth / 2 - pointRadius,
           child: CircleAvatar(
-            backgroundColor: pointBgColor ?? lineColor ?? MyColor.green,
+            backgroundColor: pointBgColor ?? lineColor ?? Theme.of(context).primaryColor,
             radius: pointRadius,
             child: Icon(Icons.access_time, size: pointRadius * 2, color: pointIconColor ?? Theme.of(context).canvasColor,),
           )
