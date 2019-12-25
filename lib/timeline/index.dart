@@ -45,7 +45,7 @@ class Timeline extends StatelessWidget {
             padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 20.0),
             decoration: BoxDecoration(
               border: Border(
-                left: BorderSide(color: lineColor ?? pointBgColor ?? MyColor.green, width: lineWidth),
+                left: BorderSide(color: lineColor ?? pointBgColor ?? Theme.of(context).primaryColor, width: lineWidth),
               ),
             ),
             child: Column(
@@ -63,7 +63,7 @@ class Timeline extends StatelessWidget {
           child: CircleAvatar(
             backgroundColor: pointBgColor ?? lineColor ?? MyColor.green,
             radius: pointRadius,
-            child: Icon(Icons.access_time, size: pointRadius * 2, color: pointIconColor ?? Colors.white,),
+            child: Icon(Icons.access_time, size: pointRadius * 2, color: pointIconColor ?? Theme.of(context).canvasColor,),
           )
         )
       ],
