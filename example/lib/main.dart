@@ -7,6 +7,7 @@ import 'pages/Timeline.dart';
 import 'pages/Dialog.dart';
 import 'pages/ButtonTag.dart';
 import 'pages/Cell.dart';
+import 'pages/AZList.dart';
 
 void main() => runApp(MyApp());
 
@@ -158,6 +159,17 @@ class _MyHomePageState extends State<MyHomePage> {
             radius: 0,
             onClick: () {
               Navigator.of(context).push(new MaterialPageRoute(builder: (ctx) => TimelinePage()));
+            },
+          ),
+          BlankRow(),
+          ButtonTag(
+            text: 'AZList -- 带索引的列表',
+            type: 'default',
+            size: 'big',
+//            hairline: true,
+            radius: 0,
+            onClick: () {
+              Navigator.of(context).push(new MaterialPageRoute(builder: (ctx) => AZListPage()));
             },
           )
         ],

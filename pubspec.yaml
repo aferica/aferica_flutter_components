@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   cached_network_image: ^1.0.0
+  fluttertoast: ^3.0.4
   flutter_spinkit: ^3.1.0
   flutter_drag_scale:
     git: https://github.com/LiuC520/flutter_drag_scale.git
