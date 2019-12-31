@@ -28,6 +28,9 @@ class AZListState extends State<AZList> {
     this.keys
   });
 
+  ScrollController _dataController = new ScrollController();
+  ScrollController _keyController = new ScrollController();
+
   String currentKey = 'A';
 
   @override
@@ -41,6 +44,10 @@ class AZListState extends State<AZList> {
     if (keys == null) {
       keys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     }
+
+    _dataController.addListener(() {
+      print(_dataController.offset);
+    });
   }
 
   @override
@@ -49,16 +56,32 @@ class AZListState extends State<AZList> {
       width: MediaQuery.of(context).size.width,
       child: Stack(
         children: <Widget>[
-          ListView.builder(
-            itemCount: data.length,
-            itemBuilder: (BuildContext _content,int i){
-              if(i < data.length) {
-                return ListTile(
-                  title: Text('aa'),
-                );
-              }
-              return null;
-            },
+          Positioned(
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
+            child: ListView.builder(
+              controller: _dataController,
+              itemCount: data.length,
+              itemBuilder: (BuildContext _content,int i){
+                if(i < data.length) {
+                  return ListView.builder(
+                    itemCount: data.length,
+                    itemBuilder: (BuildContext _content,int j){
+                      if(j < data.length) {
+                        return ListTile(
+                          leading: CircleAvatar(child: Text(data[j], style: TextStyle(fontSize: 12),),),
+                          title: Text(data[i] + data[j]),
+                        );
+                      }
+                      return null;
+                    },
+                  );
+                }
+                return null;
+              },
+            ),
           ),
           Positioned(
             width: 40,
