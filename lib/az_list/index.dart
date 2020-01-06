@@ -2,38 +2,44 @@ import 'package:flutter/material.dart';
 
 import 'package:oktoast/oktoast.dart';
 
+import 'package:aferica_flutter_components/my_image/index.dart';
+
 class AZList extends StatefulWidget {
-  final List<Map> data;
-  final List keys;
+  final List data;
+  final String keyName;
   final bool toast;
-  final Widget avatar;
+  final String avatar;
 
   AZList({
     Key key,
     this.data,
-    this.keys,
+    this.keyName,
     this.toast,
     this.avatar
   }): assert(data != null && data.length > 0, '列表数据data不能为空'),
-      assert(!data[0].containsKey("key"), '列表数据data格式不正确，缺少key'),
+      assert(keyName != null && keyName.isNotEmpty, '缺少key'),
       super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return AZListState(data: this.data, keys: this.keys, toast: this.toast);
+    return AZListState(data: this.data, keyName: this.keyName, toast: this.toast, avatar: this.avatar);
   }
 }
 
 class AZListState extends State<AZList> {
   List data;
-  List keys;
+  String keyName;
+  List keyList = [];
+  List<int> keyIndex = [];
   bool toast;
+  String avatar;
 
   AZListState({
     Key key,
     this.data,
-    this.keys,
-    this.toast
+    this.keyName,
+    this.toast,
+    this.avatar
   });
 
   ScrollController _dataController = new ScrollController();
@@ -46,13 +52,7 @@ class AZListState extends State<AZList> {
   void initState() {
     super.initState();
 
-    if (data == null) {
-      data = [];
-    }
-
-    if (keys == null) {
-      keys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-    }
+    getKeyFromData();
 
     toast = toast ?? false;
 
@@ -62,7 +62,27 @@ class AZListState extends State<AZList> {
 
     _dataController.addListener(() {
       print(_dataController.offset);
+//      int index = _dataController.offset ~/ 30;
+//      String currentKey = data[index][keyName] ?? '';
+//      setState(() {
+//        currentKeyIndex = keyList.indexOf(currentKey);
+//      });
     });
+  }
+
+  getKeyFromData() {
+    Set keySet = new Set();
+    for(int i = 0; i< data.length; i++) {
+      print(data[i]);
+      String keyValue = data[i][keyName] ?? '';
+      if (!keySet.contains(keyValue)) {
+        keySet.add(keyValue);
+        keyIndex.add(i);
+        keyList.add(keyValue);
+      }
+    }
+    print(keyList);
+    print(keyIndex);
   }
 
   @override
@@ -78,14 +98,26 @@ class AZListState extends State<AZList> {
             bottom: 0,
             child: ListView.builder(
               controller: _dataController,
-              itemCount: data.length * data.length * data.length * data.length,
+              itemCount: data.length,
               itemExtent: 60.0,
               itemBuilder: (BuildContext _content,int i){
-                if(i < data.length * data.length * data.length * data.length) {
-                  return ListTile(
-                    leading: CircleAvatar(child: Text(data[i ~/ (data.length * data.length * data.length)], style: TextStyle(fontSize: 12),),),
-                    title: Text('测试---' + i.toString()),
-                  );
+                if(i < data.length) {
+                  if (avatar != null && avatar != '') {
+                    return ListTile(
+                      leading: CircleAvatar(child: ClipOval(child: MyNetWorkImage(src: data[i][avatar]),)),
+                      title: Text(data[i]['name']),
+                      onTap: () {
+                        Navigator.of(context).pop(data[i]);
+                      },
+                    );
+                  } else {
+                    return ListTile(
+                      title: Text(data[i]['name']),
+                      onTap: () {
+                        Navigator.of(context).pop(data[i]);
+                      },
+                    );
+                  }
                 }
                 return null;
               },
@@ -97,56 +129,52 @@ class AZListState extends State<AZList> {
             top: 20,
             bottom: 20,
             child: Container(
-              padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(22.0)),
-                border: new Border.all(width: 0.4, color: Theme.of(context).dividerColor),
-              ),
-              child: Column(
-                children: _buildKeyList(),
+              child: Container(
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(22.0)),
+                  border: new Border.all(width: 0.4, color: Theme.of(context).dividerColor),
+                  color: Theme.of(context).canvasColor
+                ),
+                child: ListView.builder(
+                  itemCount: keyList.length,
+                  itemExtent: 30.0,
+                  itemBuilder: (BuildContext _content,int i){
+                    if(i < data.length) {
+                      String text = keyList[i].toString();
+                      if (i == currentKeyIndex) {
+                        return Container(
+                          height: 30.0,
+                          padding: EdgeInsets.all(2.0),
+                          child: CircleAvatar(child: Text(text.toString(), textAlign: TextAlign.center, style: TextStyle(fontSize: 18),),),
+                        );
+                      }
+                      return GestureDetector(
+                        child: Text(text, textAlign: TextAlign.center, style: TextStyle(fontSize: 18),),
+                        onTap: () {
+                          setState(() {
+                            currentKeyIndex = i;
+                          });
+                          if (toast) {
+                            showToast(
+                              text,
+                              textStyle: TextStyle(fontSize: 46, fontWeight: FontWeight.w600),
+                              textPadding: EdgeInsets.only(top: 20.0, left: 30.0, right: 30.0, bottom: 20.0),
+                              position: ToastPosition.center
+                            );
+                          }
+                          _dataController.jumpTo(keyIndex[i] * 60.0);
+                        },
+                      );
+                    }
+                    return null;
+                  }
+                ),
               ),
             ),
           ),
         ],
       ),
     );
-  }
-
-  List<Widget> _buildKeyList() {
-    List<Widget> keyList = [];
-    keys.forEach((text) {
-      int index = keys.indexOf(text);
-      if (index == currentKeyIndex) {
-        keyList.add(Container(
-          height: 40.0,
-          padding: EdgeInsets.all(5.0),
-          child: CircleAvatar(child: Text(text, textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 18),),),
-        ));
-      } else {
-        keyList.add(Expanded(
-          child: GestureDetector(
-            child: Text(
-              text, textAlign: TextAlign.center, style: TextStyle(fontSize: 18),),
-            onTap: () {
-              setState(() {
-                currentKeyIndex = index;
-              });
-              if (toast) {
-                showToast(
-                    text,
-                    textStyle: TextStyle(
-                        fontSize: 46, fontWeight: FontWeight.w600),
-                    textPadding: EdgeInsets.only(
-                        top: 20.0, left: 30.0, right: 30.0, bottom: 20.0)
-                );
-              }
-              _dataController.jumpTo(index * 60.0 * keys.length * data.length * data.length);
-            },
-          ),
-        ));
-      }
-    });
-    return keyList;
   }
 }
