@@ -38,11 +38,11 @@ class ExceptionMessage extends StatelessWidget {
     if (type == 'net') {
       excPic = 'static/images/no_net.jpg';
     } else if (type == 'busy') {
-      excPic = 'static/images/no_net.jpg';
+      excPic = 'static/images/busy.jpg';
     } else if (type == 'find') {
-      excPic = 'static/images/no_net.jpg';
+      excPic = 'static/images/no_find.jpg';
     } else if (type == 'message') {
-      excPic = 'static/images/no_net.jpg';
+      excPic = 'static/images/no_msg.jpg';
     } else {
       excPic = type;
     }
