@@ -9,6 +9,7 @@ import 'pages/Dialog.dart';
 import 'pages/ButtonTag.dart';
 import 'pages/Cell.dart';
 import 'pages/AZList.dart';
+import 'pages/LoadMore.dart';
 
 void main() => runApp(MyApp());
 
@@ -174,6 +175,17 @@ class _MyHomePageState extends State<MyHomePage> {
             radius: 0,
             onClick: () {
               Navigator.of(context).push(new MaterialPageRoute(builder: (ctx) => AZListPage()));
+            },
+          ),
+          BlankRow(),
+          ButtonTag(
+            text: 'LoadMore -- 页底提示',
+            type: 'default',
+            size: 'big',
+//            hairline: true,
+            radius: 0,
+            onClick: () {
+              Navigator.of(context).push(new MaterialPageRoute(builder: (ctx) => LoadMorePage()));
             },
           )
         ],
