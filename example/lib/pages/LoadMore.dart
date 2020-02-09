@@ -7,14 +7,23 @@ class LoadMorePage extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text('ButtonTag'),
+        title: Text('LoadMore'),
       ),
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            LoadMore(),
-            LoadMore(text: '请稍等...',)
+            Container(
+              alignment: Alignment.center,
+              child: LoadMore(),
+            ),
+            Divider(),
+            LoadMore(text: '请稍等...',),
+            Divider(),
+            LoadMore(height: 60,),
+            Divider(),
+            LoadMore(
+              type: LoadMoreType.noDate,
+            )
           ],
         ),
       ),

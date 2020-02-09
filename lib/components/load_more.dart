@@ -17,13 +17,22 @@ class LoadMore extends StatelessWidget {
   bool showIcon;
   /// 提示文字
   String text;
+  /// 高度
+  double height;
+  /// 大小
+  double iconSize;
+  /// 大小
+  double fontSize;
 
   LoadMore({
     Key key,
     this.type = LoadMoreType.loading,
     this.icon,
     this.showIcon = true,
-    this.text = '正在加载中...'
+    this.text = '正在加载中...',
+    this.height = 40.0,
+    this.iconSize = 24,
+    this.fontSize = 16
   }):super(key: key);
 
 
@@ -32,18 +41,31 @@ class LoadMore extends StatelessWidget {
     // TODO: implement build
     if (icon == null && type == LoadMoreType.loading) {
       icon = SpinKitFadingCircle(
-        size: 20,
+        size: iconSize,
         color: Theme.of(context).disabledColor,
       );
     }
 
+    if (text == '正在加载中...' && type == LoadMoreType.noDate) {
+      text = '我是有底线的';
+    }
+
     return Container(
-      height: 40,
+      height: height,
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisSize: MainAxisSize.min,
+//        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          icon,
-          Text(text, style: Theme.of(context).textTheme.caption,)
+          type == LoadMoreType.loading ? icon : Container(width: fontSize * 3, height: 1.0, color: Theme.of(context).disabledColor,),
+          Container(
+            padding: EdgeInsets.only(left: fontSize / 2, right: fontSize / 2),
+            child: Text(text, style: TextStyle(
+              color: Theme.of(context).disabledColor,
+              fontSize: fontSize,
+            ),),
+          ),
+          type == LoadMoreType.loading ? Text('') : Container(width: fontSize * 3, height: 1.0, color: Theme.of(context).disabledColor,),
         ],
       ),
     );
