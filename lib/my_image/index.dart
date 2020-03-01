@@ -70,7 +70,11 @@ class MyNetWorkImage extends StatelessWidget {
             ),
           ),
           errorWidget: (context, url, err) => Center(
-            child: error ?? Image.asset('static/images/404.jpg', fit: BoxFit.cover,)
+            child: error ?? Image.asset(
+              'static/images/no_find.jpg',
+              package: 'aferica_flutter_components',
+              width: width / 2, height: height / 2,
+            )
           ),
         ),
       ),

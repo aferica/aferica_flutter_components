@@ -36,6 +36,7 @@ flutter:
     - static/images/no_find.jpg
     - static/images/no_msg.jpg
     - static/images/no_net.jpg
+    - static/images/no_image.png
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
   #

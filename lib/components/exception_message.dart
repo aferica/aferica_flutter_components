@@ -31,6 +31,8 @@ class ExceptionMessage extends StatelessWidget {
         excMsg = '什么都没有找到';
       } else if (type == 'message') {
         excMsg = '未收到任何信息';
+      } else if (type == 'image') {
+        excMsg = '图片加载失败';
       }
     } else {
       excMsg = msg;
@@ -43,6 +45,8 @@ class ExceptionMessage extends StatelessWidget {
       excPic = 'static/images/no_find.jpg';
     } else if (type == 'message') {
       excPic = 'static/images/no_msg.jpg';
+    } else if (type == 'image') {
+      excPic = 'static/images/no_image.png';
     } else {
       excPic = type;
     }
