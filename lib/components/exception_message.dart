@@ -12,10 +12,13 @@ class ExceptionMessage extends StatelessWidget {
 
   final String msg;
 
+  final VoidCallback onClick;
+
   ExceptionMessage({
     Key key,
     this.type = 'error',
     this.msg,
+    this.onClick
   }):super(key: key);
 
   @override
@@ -52,21 +55,24 @@ class ExceptionMessage extends StatelessWidget {
     }
 
     // TODO: implement build
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.8,
-      height: 300,
-      child: Column(
-        children: <Widget>[
-          Container(
-            height: 200,
-            child: Center(
-              child: Image.asset(excPic, package: 'aferica_flutter_components',),
+    return GestureDetector(
+      onTap: onClick,
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.8,
+        height: 300,
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: 200,
+              child: Center(
+                child: Image.asset(excPic, package: 'aferica_flutter_components',),
+              ),
             ),
-          ),
-          Text(excMsg, style: TextStyle(
-            fontSize: 14
-          ),),
-        ],
+            Text(excMsg, style: TextStyle(
+                fontSize: 14
+            ),),
+          ],
+        ),
       ),
     );
   }

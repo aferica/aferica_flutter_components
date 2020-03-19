@@ -13,8 +13,6 @@ dependencies:
   cached_network_image: ^2.0.0-rc
   oktoast: ^2.3.0
   flutter_spinkit: ^3.1.0
-  flutter_drag_scale:
-    git: https://github.com/LiuC520/flutter_drag_scale.git
 
 dev_dependencies:
   flutter_test:

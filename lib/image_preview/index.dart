@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_drag_scale/flutter_drag_scale.dart';
 
 import 'package:aferica_flutter_components/aferica_flutter_components.dart';
 
@@ -62,13 +61,10 @@ class ImagePreviewState extends State<ImagePreview> {
                     });
                   }
                 },
-                child: DragScaleContainer(
-                  doubleTapStillScale: true,
-                  child: MyNetWorkImage(
-                    src: imageSrc[defaultIndex].toString(),
-                    width: width,
-                    fit: BoxFit.fitWidth,
-                  ),
+                child: MyNetWorkImage(
+                  src: imageSrc[defaultIndex].toString(),
+                  width: width,
+                  fit: BoxFit.fitWidth,
                 ),
               ),
             ),
