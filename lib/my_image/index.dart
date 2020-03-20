@@ -73,7 +73,8 @@ class MyNetWorkImage extends StatelessWidget {
             child: error ?? Image.asset(
               'static/images/no_find.jpg',
               package: 'aferica_flutter_components',
-              width: width / 2, height: height / 2,
+              width: width != null && width> 0 ? width / 2 : 200,
+              height: height != null && height > 0 ? height / 2 : 200,
             )
           ),
         ),
