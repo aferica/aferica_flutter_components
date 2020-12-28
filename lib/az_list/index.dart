@@ -57,11 +57,11 @@ class AZListState extends State<AZList> {
     toast = toast ?? false;
 
     _keyController.addListener(() {
-      print(_keyController.offset);
+      // print(_keyController.offset);
     });
 
     _dataController.addListener(() {
-      print(_dataController.offset);
+      // print(_dataController.offset);
 //      int index = _dataController.offset ~/ 30;
 //      String currentKey = data[index][keyName] ?? '';
 //      setState(() {
@@ -73,7 +73,7 @@ class AZListState extends State<AZList> {
   getKeyFromData() {
     Set keySet = new Set();
     for(int i = 0; i< data.length; i++) {
-      print(data[i]);
+      // print(data[i]);
       String keyValue = data[i][keyName] ?? '';
       if (!keySet.contains(keyValue)) {
         keySet.add(keyValue);
@@ -81,8 +81,8 @@ class AZListState extends State<AZList> {
         keyList.add(keyValue);
       }
     }
-    print(keyList);
-    print(keyIndex);
+    // print(keyList);
+    // print(keyIndex);
   }
 
   @override
